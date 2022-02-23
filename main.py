@@ -13,13 +13,12 @@ soup = BeautifulSoup(page.text, 'html.parser')
 
 try:
     solved_section = soup.find(class_='problems-solved')
+    numSolutions = re.findall('\((\d+)\)', solved_section.find('h5').get_text())[0]
 except:
     print("User not found or script has broke, try again..")
     exit(-1)
 
-numSolutions = re.findall('\((\d+)\)', solved_section.find('h5').get_text())[0]
 print(numSolutions,"fully solved solutions are available")
-
 sections = getHeaders(solved_section)
 
 try:
