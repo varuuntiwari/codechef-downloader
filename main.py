@@ -6,9 +6,9 @@ from extraction import getHeaders, getSolutions
 # Variables for use
 user = input('Enter user: ')
 ROOT = "https://www.codechef.com/"
-USER = ROOT+"users/"+user
+URL = ROOT+"users/"+user
 
-page = requests.get(USER)
+page = requests.get(URL)
 soup = BeautifulSoup(page.text, 'html.parser')
 
 try:
@@ -28,4 +28,10 @@ except:
     print("Enter from choices given above!! Aborting..")
     exit(-1)
 
-solutions = getSolutions(solved_section, sections[choice])
+solutions, i = getSolutions(solved_section, (choice-1)), 0
+print("The following code names are solved by the user:")
+for link in solutions:
+    print(re.findall(f'/([\w\d]+),{user}', link)[0], end=' ')
+    i+=1
+    if i%10 == 0:
+        print()
