@@ -49,4 +49,4 @@ if status != 1:
     exit(-1)
 else:
     print('''[+] Downloads successful!\nRemove the solutions from Downloads folder before
-downloading other sections with the same name!''')
+downloading other sections with the same name''')
