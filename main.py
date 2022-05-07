@@ -5,7 +5,7 @@ from extraction import getHeaders, getSolutions
 from download import downloadFiles
 
 # Variables for use
-user = 'aibot69'#input('Enter user: ')
+user = input('Enter user: ')
 ROOT = "https://www.codechef.com/"
 URL = ROOT+"users/"+user
 
@@ -23,7 +23,7 @@ print(numSolutions,"fully solved solutions are available")
 sections = getHeaders(solved_section)
 
 try:
-    choice = 2#int(input(": "))
+    choice = int(input(": "))
 except:
     print("[-] Enter from choices given above!! Aborting..")
     exit(-1)
